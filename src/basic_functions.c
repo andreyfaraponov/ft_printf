@@ -3,16 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   basic_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: afarapon <afarapon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 21:21:49 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/05 22:21:25 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/06 22:18:34 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ft_calcandprint(char **f, va_list list)
+static int	ft_get_widthlen(char **f, va_list list)
+{
+	if (**f == '*')
+	{
+		(*f)++;
+		return (va_arg(list, int));
+	}
+	else if (ft_strchr("0123456789", **f))
+		return (ft_get_number(f));
+	else
+		return (0);
+}
+
+int			ft_calcandprint(char **f, va_list list)
 {
 	t_all_flags	all_flags;
 	int			result;
@@ -21,16 +34,18 @@ int		ft_calcandprint(char **f, va_list list)
 	ft_all_flags_init(&all_flags);
 	if (**f && ft_strchr("#+-0 ", **f))
 		ft_get_flags(f, &all_flags);
-	if (**f && ft_strchr("0123456789", **f))
-		all_flags.width = ft_get_number(f);
+	if (**f && ft_strchr("0123456789*", **f))
+		all_flags.width = ft_get_widthlen(f, list);
+		// all_flags.width = ft_get_number(f);
 	if (**f && ft_strchr(".", **f) && (*f)++ && ++all_flags.dot)
-		all_flags.currency = ft_get_number(f);
+		all_flags.currency = ft_get_widthlen(f, list);
+		// all_flags.currency = ft_get_number(f);
 	if (**f && ft_strchr("hljz", **f))
 		ft_get_size(f, &all_flags);
 	return (ft_main_print(f, all_flags, list, &result));
 }
 
-int		ft_main_print(char **f, t_all_flags flags, va_list list, int *res)
+int			ft_main_print(char **f, t_all_flags flags, va_list list, int *res)
 {
 	char	*mb_res;
 
@@ -58,7 +73,7 @@ int		ft_main_print(char **f, t_all_flags flags, va_list list, int *res)
 	return (*res);
 }
 
-int		ft_print_printf(char **f, va_list list, int *result)
+int			ft_print_printf(char **f, va_list list, int *result)
 {
 	char	*tmp;
 
@@ -77,7 +92,7 @@ int		ft_print_printf(char **f, va_list list, int *result)
 	return (*result + (int)write(1, *f, ft_strlen(*f)));
 }
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list	list;
 	int		result;
