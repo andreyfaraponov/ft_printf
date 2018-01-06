@@ -6,7 +6,7 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 21:17:22 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/06 23:54:44 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/07 00:25:22 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char			*ft_putsign(char *src, char sign, t_all_flags all, int isneg);
 char			*ft_make_precision(char *src, t_all_flags all);
 void			ft_unicode_write(unsigned int chr);
 int				ft_max_bit_size(unsigned int n);
-char			*ft_create_ustring(unsigned int *arr, char *src);
+char			*ft_create_ustring(unsigned int *arr, char *src, t_all_flags *all);
 int				ft_print_null(char chr, t_all_flags all_flags);
 
 #endif

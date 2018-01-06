@@ -6,7 +6,7 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 21:21:49 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/06 22:18:34 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/07 00:21:05 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ int			ft_calcandprint(char **f, va_list list)
 		ft_get_flags(f, &all_flags);
 	if (**f && ft_strchr("0123456789*", **f))
 		all_flags.width = ft_get_widthlen(f, list);
-		// all_flags.width = ft_get_number(f);
 	if (**f && ft_strchr(".", **f) && (*f)++ && ++all_flags.dot)
 		all_flags.currency = ft_get_widthlen(f, list);
-		// all_flags.currency = ft_get_number(f);
 	if (**f && ft_strchr("hljz", **f))
 		ft_get_size(f, &all_flags);
 	return (ft_main_print(f, all_flags, list, &result));

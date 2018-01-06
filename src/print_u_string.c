@@ -6,7 +6,7 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 14:28:56 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/06 22:49:16 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/07 00:26:21 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,33 +38,41 @@ static char	*ft_u_save_large(unsigned int chr, char *src)
 	return (res);
 }
 
-static char	*ft_unicode_save(unsigned int chr, char *src)
+static char	*ft_unicode_save(unsigned int chr, char *src, t_all_flags *all)
 {
 	char				*res;
 
-	if (ft_max_bit_size(chr) < 8)
+	if (ft_max_bit_size(chr) < 8 && (all->currency >= 1 || !all->dot))
+	{
+		all->currency--;
 		return (ft_strcharjoin(src, chr));
-	else if (ft_max_bit_size(chr) < 12)
+	}
+	else if (ft_max_bit_size(chr) < 12 && (all->currency >= 2 || !all->dot))
 	{
 		res = ft_strcharjoin(src, M1_ONE(chr));
 		res = ft_strcharjoin(res, M1_TWO(chr));
+		all->currency -= 2;
 	}
-	else if (ft_max_bit_size(chr) < 17)
+	else if (ft_max_bit_size(chr) < 17 && (all->currency >= 3 || !all->dot))
 	{
 		res = ft_strcharjoin(src, M2_ONE(chr));
 		res = ft_strcharjoin(res, M2_TWO(chr));
 		res = ft_strcharjoin(res, M1_TWO(chr));
+		all->currency -= 3;
 	}
-	else if (ft_max_bit_size(chr) < 22)
-		return (ft_u_save_large(chr, src));
+	else if (ft_max_bit_size(chr) < 22 && (all->currency >= 4 || !all->dot))
+	{
+		res = ft_u_save_large(chr, src);
+		all->currency -= 4;
+	}
 	return (res);
 }
 
-char		*ft_create_ustring(unsigned int *arr, char *src)
+char		*ft_create_ustring(unsigned int *arr, char *src, t_all_flags *all)
 {
 	while (*arr != 0)
 	{
-		src = ft_unicode_save(*arr, src);
+		src = ft_unicode_save(*arr, src, all);
 		arr++;
 	}
 	return (src);
