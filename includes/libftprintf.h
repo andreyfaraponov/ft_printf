@@ -6,7 +6,7 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 21:17:22 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/06 20:32:50 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/06 22:01:30 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <string.h>
 # include <limits.h>
 # include <inttypes.h>
+# include <locale.h>
 # include "../libft/libft.h"
 
 typedef struct	s_all_flags
