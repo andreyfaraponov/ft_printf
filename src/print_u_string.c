@@ -6,7 +6,7 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 14:28:56 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/07 00:26:21 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/07 00:34:40 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char		*ft_create_ustring(unsigned int *arr, char *src, t_all_flags *all)
 	{
 		src = ft_unicode_save(*arr, src, all);
 		arr++;
+		if (all->dot && !all->currency)
+			break ;
 	}
 	return (src);
 }

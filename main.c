@@ -6,7 +6,7 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 14:33:47 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/07 00:08:22 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/07 00:35:08 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ int		main(void)
 	// ft_printf("%2S\n", L"@@");
 	// ft_printf("%S\n", NULL);
 	// printf("%.4O", 42);
-	printf("%d\n", printf("%.3S\n", L"Пр"));
-	printf("%d\n", ft_printf("%.3S\n", L"Пр"));
+	// printf("%d\n", printf("%.5S\n", L"При"));
+	// printf("%d\n", ft_printf("%.5S\n", L"При"));
+	// printf("%.2S\n", L"@@@");
+	// ft_printf("%.2S\n", L"@@@");
 	return (0);
 }

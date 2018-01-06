@@ -6,7 +6,7 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 23:15:07 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/07 00:25:07 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/07 00:31:17 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ static char	*ft_make_width_ustr(char *src, t_all_flags all, char flag)
 	char		*width;
 
 	len = (int)ft_strlen(src);
+	// if (len > all.currency && all.dot && ++flag)
+	// {
+	// 	src = ft_strsub(src, 0, (size_t)all.currency);
+	// 	len = (int)ft_strlen(src);
+	// }
 	if (len >= all.width)
 	{
 		if (flag)
