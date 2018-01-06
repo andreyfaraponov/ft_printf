@@ -6,7 +6,7 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 21:17:22 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/06 22:01:30 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/06 23:54:44 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef struct	s_all_flags
 	char		f_minus;
 	char		f_plus;
 	char		f_space;
-	intmax_t	currency;
+	int			currency;
 	int			dot;
-	intmax_t	width;
+	int			width;
 	char		hh;
 	char		h;
 	char		l;
