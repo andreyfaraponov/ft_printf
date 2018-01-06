@@ -6,7 +6,7 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 23:15:07 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/06 22:28:48 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/06 22:49:09 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char		*ft_print_strings(char **f, t_all_flags all_flags, va_list list)
 	char			*temp;
 
 	str = 0;
-	if (**f == 'S' && MB_CUR_MAX == 4)
+	if (**f == 'S')
 	{
 		arr = (unsigned int*)va_arg(list, int*);
 		if (arr == NULL)

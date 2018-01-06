@@ -6,11 +6,12 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 14:28:56 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/06 19:29:14 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/06 22:49:16 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 static char	*ft_strcharjoin(char *s1, unsigned char chr)
 {
