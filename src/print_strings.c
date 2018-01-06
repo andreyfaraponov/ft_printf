@@ -6,7 +6,7 @@
 /*   By: afarapon <afarapon@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 23:15:07 by afarapon          #+#    #+#             */
-/*   Updated: 2018/01/06 22:49:09 by afarapon         ###   ########.fr       */
+/*   Updated: 2018/01/06 23:14:43 by afarapon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ char		*ft_print_strings(char **f, t_all_flags all_flags, va_list list)
 			str = ft_create_ustring(arr, ft_strnew(0));
 		temp = str;
 		str = ft_make_width_str(str, all_flags, 0);
-		free(temp);
+		if (arr)
+			free(temp);
 	}
 	else
 	{
