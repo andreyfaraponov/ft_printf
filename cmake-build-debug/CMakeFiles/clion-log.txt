@@ -1,1 +1,4 @@
-CMakeLists.txt not found in /home/standrewom/ft_printf
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/afarapon/git_printf
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/afarapon/git_printf/cmake-build-debug

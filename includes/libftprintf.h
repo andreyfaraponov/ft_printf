@@ -50,7 +50,7 @@ typedef struct	s_all_flags
 int				ft_printf(const char *zzz, ...);
 void			ft_all_flags_init(t_all_flags *flags);
 void			ft_get_flags(char **f, t_all_flags *all_flags);
-size_t			ft_get_number(char **f);
+int				ft_get_number(char **f);
 void			ft_get_size(char **f, t_all_flags *all_flags);
 int				ft_main_print(char **f, t_all_flags flags, va_list list,
 	int *r);
@@ -89,7 +89,6 @@ int				ft_print_u_characters(char **f, t_all_flags all_flags,
 
 char			*ft_putsign(char *src, char sign, t_all_flags all, int isneg);
 char			*ft_make_precision(char *src, t_all_flags all);
-void			ft_unicode_write(unsigned int chr);
 int				ft_max_bit_size(unsigned int n);
 char			*ft_create_ustring(unsigned int *arr, char *src, t_all_flags *all);
 int				ft_print_null(char chr, t_all_flags all_flags);

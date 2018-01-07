@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <wchar.h>
-#include <stdio.h>
+//#include <wchar.h>
+//#include <stdio.h>
 
 static char	ft_help_four(t_all_flags all)
 {

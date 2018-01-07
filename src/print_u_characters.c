@@ -54,6 +54,7 @@ static char	*ft_unicode_save(unsigned int chr, char *src)
 {
 	char				*res;
 
+	res = ft_strdup("");
 	if (ft_max_bit_size(chr) < 8)
 		return (ft_strcharjoin(src, chr));
 	else if (ft_max_bit_size(chr) < 12)

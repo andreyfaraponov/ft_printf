@@ -16,7 +16,7 @@
 
 int		main(void)
 {	
-	setlocale(LC_ALL, "");
+//	setlocale(LC_ALL, "");
 	// ft_printf("%015S\n", L"Привет мир!");
 	// ft_printf("%015.2S\n", L"Привет мир!");
 	// ft_printf("%015.15S\n", L"Привет мир!");
@@ -51,8 +51,8 @@ int		main(void)
 	// printf("2: %d\n", ft_printf("2 char:%c\n", 0));
 	// printf("%S\n", "@@");
 	// ft_printf("%S", "@@");
-	// printf("%S\n", "Lalalala, 100% des gens qui parlent à Ly adorent Ly. Ou Presque. 2, 10, 2710,");
-	// ft_printf("%S\n", L"Lalalala, 100% des gens qui parlent à Ly adorent Ly. Ou Presque. 2, 10, 2710,");
+	 printf("%S\n", L"Lalalala, 100% des gens qui parlent à Ly adorent Ly. Ou Presque. 2, 10, 2710,");
+	 ft_printf("%S\n", L"Lalalala, 100% des gens qui parlent à Ly adorent Ly. Ou Presque. 2, 10, 2710,");
 	// printf("%.2S\n", L"@@");
 	// ft_printf("%.2S\n", L"@@");
 	// ft_printf("%2S\n", L"@@");
@@ -60,7 +60,7 @@ int		main(void)
 	// printf("%.4O", 42);
 	// printf("%d\n", printf("%.5S\n", L"При"));
 	// printf("%d\n", ft_printf("%.5S\n", L"При"));
-	// printf("%.2S\n", L"@@@");
-	// ft_printf("%.2S\n", L"@@@");
+	 printf("%.2S\n", L"@@@");
+	 ft_printf("%.2S\n", L"@@@");
 	return (0);
 }

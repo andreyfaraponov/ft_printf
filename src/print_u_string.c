@@ -26,7 +26,7 @@ static char	*ft_strcharjoin(char *s1, unsigned char chr)
 	return (result);
 }
 
-static char	*ft_u_save_large(unsigned int chr, char *src)
+static char	*ft_u_save_large(unsigned int chr, char *src, t_all_flags *all)
 {
 	char	*res;
 
@@ -34,6 +34,7 @@ static char	*ft_u_save_large(unsigned int chr, char *src)
 	res = ft_strcharjoin(res, M3_TWO(chr));
 	res = ft_strcharjoin(res, M2_TWO(chr));
 	res = ft_strcharjoin(res, M1_TWO(chr));
+	all->currency -= 4;
 	free(src);
 	return (res);
 }
@@ -42,7 +43,8 @@ static char	*ft_unicode_save(unsigned int chr, char *src, t_all_flags *all)
 {
 	char				*res;
 
-	if (ft_max_bit_size(chr) < 8 && (all->currency >= 1 || !all->dot))
+	res = ft_strdup("");
+	if ((ft_max_bit_size(chr) < 8 ||  MB_CUR_MAX == 1) && (all->currency >= 1 || !all->dot))
 	{
 		all->currency--;
 		return (ft_strcharjoin(src, chr));
@@ -61,10 +63,7 @@ static char	*ft_unicode_save(unsigned int chr, char *src, t_all_flags *all)
 		all->currency -= 3;
 	}
 	else if (ft_max_bit_size(chr) < 22 && (all->currency >= 4 || !all->dot))
-	{
-		res = ft_u_save_large(chr, src);
-		all->currency -= 4;
-	}
+		res = ft_u_save_large(chr, src, all);
 	return (res);
 }
 

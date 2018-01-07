@@ -30,14 +30,22 @@ void		ft_get_flags(char **f, t_all_flags *all_flags)
 	ft_get_flags(f, all_flags);
 }
 
-size_t		ft_get_number(char **f)
+int			ft_get_number(char **f)
 {
-	size_t	nb;
+	int		nb;
+	int 	sign;
 
 	nb = 0;
+	sign = 1;
+	if (**f == '-')
+	{
+		sign = -1;
+		(*f)++;
+	}
 	while (**f <= '9' && **f >= '0')
 		nb = nb * 10 + *((*f)++) - '0';
-	return (nb);
+	nb *= sign;
+	return (nb > 0 ? nb : 0);
 }
 
 void		ft_get_size(char **f, t_all_flags *all_flags)
