@@ -62,5 +62,7 @@ int		main(void)
 	// printf("%d\n", ft_printf("%.5S\n", L"При"));
 	 printf("%.2S\n", L"@@@");
 	 ft_printf("%.2S\n", L"@@@");
+
+
 	return (0);
 }
